@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-list-check"></i>
+            <span>TaskFlow</span>
+        </div>
+        <div class="admin-label">
+            <i class="fa-solid fa-shield-halved"></i>
+            Admin Panel
+        </div>
+        <nav>
+            <button class="nav-btn active" id="usersNavBtn">
+                <i class="fa-solid fa-users"></i>
+                <span>Users</span>
+            </button>
+            <button class="nav-btn" id="overviewNavBtn">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Overview</span>
+            </button>
+        </nav>
+        <button class="logout-btn" id="adminLogoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- HEADER -->
+        <header class="top-header">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Manage TaskFlow users and monitor their tasks.</p>
+            </div>
+            <div class="admin-profile">
+                <div class="admin-avatar">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>adminaa2003@gmail.com</small>
+                </div>
+            </div>
+        </header>
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                    <span>Total Users</span>
+                    <h2 id="totalUsers">0</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div>
+                    <span>Total Tasks</span>
+                    <h2 id="totalTasks">0</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <span>Completed</span>
+                    <h2 id="completedTasks">0</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <span>Pending</span>
+                    <h2 id="pendingTasks">0</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- USERS SECTION -->
+        <section class="users-section" id="usersSection">
+            <div class="section-header">
+                <div>
+                    <h2>Registered Users</h2>
+                    <p>View users and their TaskFlow activity.</p>
+                </div>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="userSearch" placeholder="Search users...">
+                </div>
+            </div>
+
+            <!-- USERS TABLE -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Total Tasks</th>
+                            <th>Completed</th>
+                            <th>Pending</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- USER TASKS SECTION -->
+        <section class="user-tasks-section" id="userTasksSection">
+            <div class="section-header">
+                <div>
+                    <h2 id="selectedUserTitle">User Tasks</h2>
+                    <p id="selectedUserEmail">Select a user to view their tasks.</p>
+                </div>
+                <button class="back-btn" id="backToUsersBtn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Users
+                </button>
+            </div>
+
+            <div class="selected-user-stats" id="selectedUserStats">
+                <div>
+                    <span>Total</span>
+                    <strong id="selectedTotal">0</strong>
+                </div>
+                <div>
+                    <span>Completed</span>
+                    <strong id="selectedCompleted">0</strong>
+                </div>
+                <div>
+                    <span>Pending</span>
+                    <strong id="selectedPending">0</strong>
+                </div>
+            </div>
+
+            <div class="task-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Task</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTasksTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="admin.js"></script>
+</body>
+</html>

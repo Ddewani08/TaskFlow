@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span><i class="fa-solid fa-check"></i></span>
+            TaskFlow
+        </div>
+        <div class="nav-links">
+            <a href="#dashboard" class="nav-link active">
+                <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+                <span>Home</span>
+            </a>
+            <a href="#tasks" class="nav-link">
+                <span class="nav-icon"><i class="fa-solid fa-list-check"></i></span>
+                <span>My Tasks</span>
+            </a>
+            <a href="#progress-section" class="nav-link">
+                <span class="nav-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                <span>Progress</span>
+            </a>
+            <a href="#settings" class="nav-link">
+                <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                <span>Settings</span>
+            </a>
+            <div class="sidebar-bottom">
+
+    <div class="appearance-section">
+        <span class="appearance-title">Appearance</span>
+
+        <div class="theme-buttons">
+            <button id="lightModeBtn" class="theme-btn">
+                <i class="fa-solid fa-sun"></i>
+                <span>Light</span>
+            </button>
+
+            <button id="darkModeBtn" class="theme-btn">
+                <i class="fa-solid fa-moon"></i>
+                <span>Dark</span>
+            </button>
+        </div>
+    </div>
+
+    <button id="logoutBtn" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </button>
+
+</div>
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="dashboard" id="dashboard">
+            <div class="welcome">
+                <h1>Welcome to TaskFlow</h1>
+                <p>Stay organized, stay focused, and get things done.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h2 id="totalTasks">0</h2>
+                    <p>Total Tasks</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="completedTasks">0</h2>
+                    <p>Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="pendingTasks">0</h2>
+                    <p>Pending</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="progress">0%</h2>
+                    <p>Progress</p>
+                </div>
+            </div>
+
+            <div class="dashboard-action">
+                <button id="startBtn" type="button">
+                    <i class="fa-solid fa-plus"></i> Add New Task
+                </button>
+            </div>
+        </section>
+
+        <section id="tasks">
+            <h1>My Tasks</h1>
+            <p class="section-subtitle">Add and manage your daily tasks.</p>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search tasks...">
+            </div>
+
+            <div class="task-form">
+                <input type="text" id="taskInput" placeholder="Enter your task...">
+                <input type="date" id="taskDate">
+                <button id="addTaskBtn" type="button">
+                    <i class="fa-solid fa-plus"></i> Add Task
+                </button>
+            </div>
+
+            <div class="task-filters">
+                <button class="filter-btn active" data-filter="all" type="button">All</button>
+                <button class="filter-btn" data-filter="pending" type="button">Pending</button>
+                <button class="filter-btn" data-filter="completed" type="button">Completed</button>
+            </div>
+
+            <ul id="taskList"></ul>
+        </section>
+
+        <section id="progress-section">
+            <h1>Progress</h1>
+            <p class="section-subtitle">Track your productivity and task completion.</p>
+
+            <div class="progress-overview">
+                <div class="progress-card">
+                    <div class="progress-circle">
+                        <span id="progressPercentage">0%</span>
+                    </div>
+                    <div class="progress-content">
+                        <h2>Overall Progress</h2>
+                        <p id="progressMessage">Start completing your tasks!</p>
+                    </div>
+                </div>
+
+                <div class="progress-details">
+                    <div class="progress-stat">
+                        <span class="progress-icon"><i class="fa-solid fa-clipboard-list"></i></span>
+                        <h2 id="progressTotal">0</h2>
+                        <p>Total Tasks</p>
+                    </div>
+                    <div class="progress-stat">
+                        <span class="progress-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        <h2 id="progressCompleted">0</h2>
+                        <p>Completed</p>
+                    </div>
+                    <div class="progress-stat">
+                        <span class="progress-icon"><i class="fa-solid fa-hourglass-half"></i></span>
+                        <h2 id="progressPending">0</h2>
+                        <p>Pending</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar-section">
+                <div class="progress-bar-header">
+                    <strong>Task Completion</strong>
+                    <span id="progressBarText">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="settings">
+            <h1>Settings</h1>
+            <p class="section-subtitle">Customize your TaskFlow experience.</p>
+
+            <div class="settings-card">
+                <h2>Preferences</h2>
+
+                <div class="setting-item">
+                    <div>
+                        <strong>Save Tasks Automatically</strong>
+                        <p>Keep your tasks saved when you refresh the page.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="autoSave" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div>
+                        <strong>Show Completed Tasks</strong>
+                        <p>Keep completed tasks visible in the task list.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="showCompleted" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="settings-card">
+                <h2>Data Management</h2>
+                <p>Remove all tasks from TaskFlow.</p>
+                <button id="clearTasksBtn" class="clear-btn" type="button">
+                    <i class="fa-solid fa-trash"></i> Clear All Tasks
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

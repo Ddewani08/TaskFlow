@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="shape shape-one"></div>
+        <div class="shape shape-two"></div>
+        <div class="shape shape-three"></div>
+        <div class="shape shape-four"></div>
+        <div class="auth-container">
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-content">
+                    <div class="auth-logo">
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        TaskFlow
+                    </div>
+                    <div class="welcome-text">
+                        <p class="small-heading">
+                            WELCOME TO TASKFLOW
+                        </p>
+                        <h1>
+                            Get Started.
+                            <br>
+                            Get Things
+                            <span>Done.</span>
+                        </h1>
+                        <p class="welcome-description">
+                            Organize your tasks, manage your time,
+                            and stay focused on what matters.
+                        </p>
+                        <button type="button" id="getStartedBtn" class="get-started-btn">
+                            Get Started
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="auth-screen hidden" id="authScreen">
+                <div class="auth-intro">
+                    <div class="auth-logo">
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        TaskFlow
+                    </div>
+                    <div class="intro-content">
+                        <h1>
+                            Organize.
+                            <br>
+                            Focus.
+                            <br>
+                            <span>Flow.</span>
+                        </h1>
+                        <p>
+                            Manage your tasks, track your progress,
+                            and make every day more productive.
+                        </p>
+                        <div class="intro-features">
+                            <div class="feature">
+                                <i class="fa-solid fa-list-check"></i>
+                                <span>Manage your tasks</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span>Track your progress</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Stay productive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-box">
+                    <div class="auth-header">
+                        <h2 id="formTitle">Welcome Back!</h2>
+                        <p id="formSubtitle">
+                            Login to continue your TaskFlow journey.
+                        </p>
+                    </div>
+                    <form id="loginForm" class="auth-form">
+                        <div class="input-group">
+                            <label for="loginEmail">Email</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="loginPassword">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-options">
+                            <label class="remember">
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="auth-button">
+                            Sign In
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <p class="switch-text">
+                            Don't have an account?
+                            <button type="button" id="showSignup">Sign Up</button>
+                        </p>
+                    </form>
+                    <form id="signupForm" class="auth-form hidden">
+                        <div class="input-group">
+                            <label for="signupName">Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user"></i>
+                                <input type="text" id="signupName" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="signupEmail">Email</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="signupPassword">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="signupPassword" placeholder="Create a password" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword('signupPassword', this)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-button">
+                            <a></a>
+                            Create Account
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <p class="switch-text">
+                            Already have an account?
+                            <button type="button" id="showLogin">Sign In</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>
